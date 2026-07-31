@@ -1,0 +1,34 @@
+:root {
+  --font-geist-sans: Arial, Helvetica, sans-serif;
+  --font-geist-mono: "Courier New", Courier, monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #0b1117;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.demo-notice {
+  grid-column: 1 / -1;
+  margin: 0 0 24px;
+  color: #82919b;
+  font: 700 11px/1.5 var(--font-geist-mono);
+  letter-spacing: .06em;
+  text-align: center;
+  text-transform: uppercase;
+}
