@@ -162,7 +162,7 @@
   gap: 30px clamp(36px, 5vw, 90px);
   align-items: center;
   overflow: hidden;
-  padding: clamp(145px, 15vh, 188px) var(--s-gutter) 36px;
+  padding: clamp(145px, 15vh, 188px) max(var(--s-gutter), calc((100vw - var(--s-max)) / 2)) 36px;
   background:
     radial-gradient(circle at 77% 31%, rgba(9, 153, 209, .16), transparent 29%),
     var(--s-ink);
