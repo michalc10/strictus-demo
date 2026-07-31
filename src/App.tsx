@@ -116,7 +116,7 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
     const canvasElement: HTMLCanvasElement = canvas;
     const drawingContext: CanvasRenderingContext2D = context;
 
-    const staticMode = window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mouse = { x: 0, y: 0, active: false };
     const easedMouse = { x: 0, y: 0 };
     let trail: MotionPoint[] = [];
@@ -138,7 +138,7 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
       mouse.y = height * .42;
       easedMouse.x = mouse.x;
       easedMouse.y = mouse.y;
-      trail = Array.from({ length: 66 }, (_, index) => ({
+      trail = Array.from({ length: width < 700 ? 44 : 66 }, (_, index) => ({
         x: width * .72 - index * 9,
         y: height * .42 + Math.sin(index * .32) * 11,
       }));
@@ -148,7 +148,7 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
         phase: index * .83,
         speed: .65 + (index % 5) * .08,
       }));
-      if (staticMode) renderFrame(0, false);
+      if (reducedMotion) renderFrame(0, false);
     }
 
     function updateEasedPointer(time: number) {
@@ -371,7 +371,7 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
       if (mode === "constellation") drawConstellation(time);
       if (mode === "aurora") drawAurora(time);
       if (mode === "scanner") drawScanner(time);
-      if (continueAnimation && !staticMode) frame = window.requestAnimationFrame((nextTime) => renderFrame(nextTime, true));
+      if (continueAnimation && !reducedMotion) frame = window.requestAnimationFrame((nextTime) => renderFrame(nextTime, true));
     }
 
     function handlePointerMove(event: PointerEvent) {
@@ -385,17 +385,27 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
       mouse.active = false;
     }
 
+    function handlePointerEnd() {
+      mouse.active = false;
+    }
+
     const resizeObserver = new ResizeObserver(rebuild);
     resizeObserver.observe(canvasElement);
+    stage.addEventListener("pointerdown", handlePointerMove);
     stage.addEventListener("pointermove", handlePointerMove);
     stage.addEventListener("pointerleave", handlePointerLeave);
+    stage.addEventListener("pointercancel", handlePointerEnd);
+    window.addEventListener("pointerup", handlePointerEnd);
     rebuild();
-    if (!staticMode) frame = window.requestAnimationFrame((time) => renderFrame(time, true));
+    if (!reducedMotion) frame = window.requestAnimationFrame((time) => renderFrame(time, true));
 
     return () => {
       resizeObserver.disconnect();
+      stage.removeEventListener("pointerdown", handlePointerMove);
       stage.removeEventListener("pointermove", handlePointerMove);
       stage.removeEventListener("pointerleave", handlePointerLeave);
+      stage.removeEventListener("pointercancel", handlePointerEnd);
+      window.removeEventListener("pointerup", handlePointerEnd);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, [mode]);
@@ -517,7 +527,7 @@ export default function StrictusPage() {
   }, []);
 
   function handleHeroPointer(event: ReactPointerEvent<HTMLElement>) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
@@ -528,7 +538,7 @@ export default function StrictusPage() {
   }
 
   function handlePagePointer(event: ReactPointerEvent<HTMLDivElement>) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     event.currentTarget.style.setProperty("--site-pointer-x", `${event.clientX}px`);
     event.currentTarget.style.setProperty("--site-pointer-y", `${event.clientY}px`);
   }

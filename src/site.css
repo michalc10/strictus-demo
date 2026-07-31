@@ -102,7 +102,7 @@
   position: relative;
   color: rgba(255, 255, 255, .7);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: .08em;
   text-decoration: none;
   text-transform: uppercase;
@@ -228,14 +228,14 @@
 .strictus-motion-picker-label span {
   margin-bottom: 4px;
   color: var(--s-blue-bright);
-  font-size: 6px;
+  font-size: 9px;
   letter-spacing: .15em;
 }
 
 .strictus-motion-picker-label strong {
   overflow: hidden;
   color: rgba(255, 255, 255, .66);
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: .04em;
   text-overflow: ellipsis;
@@ -262,12 +262,12 @@
 }
 
 .strictus-motion-picker-options button span {
-  font-size: 7px;
+  font-size: 10px;
   line-height: 1;
 }
 
 .strictus-motion-picker-options button i {
-  font-size: 6px;
+  font-size: 8px;
   font-style: normal;
   letter-spacing: .04em;
   line-height: 1;
@@ -303,7 +303,7 @@
   margin: 0 0 24px;
   color: var(--s-blue);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -354,7 +354,7 @@
   max-width: 600px;
   margin: 36px 0 0;
   color: rgba(255, 255, 255, .62);
-  font-size: clamp(14px, 1.2vw, 18px);
+  font-size: clamp(16px, 1.25vw, 20px);
   line-height: 1.7;
 }
 
@@ -378,7 +378,7 @@
   border: 1px solid var(--s-blue);
   color: var(--s-white);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 650;
   letter-spacing: .07em;
   text-decoration: none;
@@ -489,12 +489,12 @@
   margin-bottom: 5px;
   color: rgba(255, 255, 255, .44);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 7px;
+  font-size: 10px;
   letter-spacing: .13em;
 }
 
 .strictus-data-chip strong {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -518,7 +518,7 @@
   margin: 12px 0 0;
   color: rgba(255, 255, 255, .42);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 7px;
+  font-size: 10px;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -552,7 +552,7 @@
 .strictus-hero-stats span {
   max-width: 150px;
   color: rgba(255, 255, 255, .48);
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.45;
 }
 
@@ -581,7 +581,7 @@
   border-right: 1px solid var(--s-line);
   color: rgba(213, 230, 235, .46);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 650;
   letter-spacing: .09em;
 }
@@ -648,7 +648,7 @@
 .strictus-section-head > p:last-child {
   margin: 0 0 6px;
   color: var(--s-muted);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -743,7 +743,7 @@
 .strictus-category-copy > span {
   color: var(--s-blue);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .strictus-category-copy h3 {
@@ -758,7 +758,7 @@
   max-width: 90%;
   margin: 0;
   color: var(--s-muted);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -787,7 +787,7 @@
 .strictus-offer-cta p {
   margin: 0;
   color: var(--s-muted);
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .strictus-offer .strictus-button-outline {
@@ -886,7 +886,7 @@
 }
 
 .strictus-about-badge span {
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.45;
   text-transform: uppercase;
 }
@@ -899,7 +899,7 @@
   max-width: 590px;
   margin: 25px 0 0;
   color: rgba(255, 255, 255, .58);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.75;
 }
 
@@ -917,13 +917,13 @@
   padding: 18px 0;
   border-bottom: 1px solid rgba(255, 255, 255, .14);
   color: rgba(255, 255, 255, .78);
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .strictus-about-copy li span {
   color: var(--s-blue-bright);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 8px;
+  font-size: 10px;
 }
 
 .strictus-process-head {
@@ -1004,7 +1004,7 @@
 
 .strictus-process-number span {
   font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .strictus-process-number i {
@@ -1031,7 +1031,7 @@
   max-width: 330px;
   margin: 0;
   color: var(--s-muted);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -1078,7 +1078,7 @@
   max-width: 460px;
   margin: 26px 0 34px;
   color: var(--s-muted);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -1111,14 +1111,14 @@
   margin-top: 18px;
   color: var(--s-blue);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 14px;
   text-decoration: none;
 }
 
 .strictus-contact-lead address {
   margin-top: 54px;
   color: var(--s-muted);
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   line-height: 1.6;
 }
@@ -1144,7 +1144,7 @@
   color: var(--s-muted);
   cursor: pointer;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
@@ -1216,7 +1216,7 @@
 
 .strictus-people h3 {
   margin: 0 0 12px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 560;
 }
 
@@ -1226,7 +1226,7 @@
   margin-top: 6px;
   color: var(--s-muted);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 8px;
+  font-size: 12px;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1322,7 +1322,7 @@
 .strictus-footer a,
 .strictus-footer span {
   color: rgba(255, 255, 255, .46);
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.6;
   text-decoration: none;
 }
@@ -1340,7 +1340,7 @@
   margin-bottom: 8px;
   color: var(--s-blue-bright);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 7px;
+  font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
@@ -1535,7 +1535,7 @@
   .strictus-mobile-menu a span {
     color: var(--s-blue-bright);
     font-family: var(--font-geist-mono), monospace;
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .strictus-mobile-menu a i {
@@ -1639,7 +1639,7 @@
     display: none;
   }
 
-  .strictus-lead { margin-top: 28px; font-size: 13px; }
+  .strictus-lead { margin-top: 28px; font-size: 16px; }
 
   .strictus-hero-actions { align-items: stretch; flex-direction: column; }
 
