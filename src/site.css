@@ -55,10 +55,10 @@
   position: fixed;
   z-index: 3;
   inset: 0;
-  opacity: .52;
+  opacity: .68;
   background:
-    radial-gradient(430px circle at var(--site-pointer-x) var(--site-pointer-y), rgba(67, 199, 245, .09), transparent 68%),
-    radial-gradient(130px circle at var(--site-pointer-x) var(--site-pointer-y), rgba(159, 227, 251, .055), transparent 72%);
+    radial-gradient(430px circle at var(--site-pointer-x) var(--site-pointer-y), rgba(67, 199, 245, .13), transparent 68%),
+    radial-gradient(130px circle at var(--site-pointer-x) var(--site-pointer-y), rgba(159, 227, 251, .075), transparent 72%);
   mix-blend-mode: screen;
   pointer-events: none;
   transition: opacity .35s ease;
@@ -303,7 +303,7 @@
   margin: 0 0 24px;
   color: var(--s-blue);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1226,7 +1226,7 @@
   margin-top: 6px;
   color: var(--s-muted);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1340,7 +1340,7 @@
   margin-bottom: 8px;
   color: var(--s-blue-bright);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: .1em;
   text-transform: uppercase;
 }

@@ -114,6 +114,7 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
     const context = canvas.getContext("2d");
     if (!stage || !context) return;
     const canvasElement: HTMLCanvasElement = canvas;
+    const stageElement: HTMLElement = stage;
     const drawingContext: CanvasRenderingContext2D = context;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -156,8 +157,8 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
       const idleY = height * .4 + Math.sin(time * .00045) * height * .13;
       const targetX = mouse.active ? mouse.x : idleX;
       const targetY = mouse.active ? mouse.y : idleY;
-      easedMouse.x += (targetX - easedMouse.x) * .075;
-      easedMouse.y += (targetY - easedMouse.y) * .075;
+      easedMouse.x += (targetX - easedMouse.x) * .16;
+      easedMouse.y += (targetY - easedMouse.y) * .16;
     }
 
     function strokeTrail(points: MotionPoint[], color: string, lineWidth: number, offset: number, time: number) {
@@ -179,8 +180,8 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
     }
 
     function drawFiber(time: number) {
-      trail[0].x += (easedMouse.x - trail[0].x) * .32;
-      trail[0].y += (easedMouse.y - trail[0].y) * .32;
+      trail[0].x += (easedMouse.x - trail[0].x) * .42;
+      trail[0].y += (easedMouse.y - trail[0].y) * .42;
       for (let index = 1; index < trail.length; index += 1) {
         const follow = trail[index - 1];
         trail[index].x += (follow.x - trail[index].x) * .26;
@@ -379,6 +380,13 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
       mouse.x = event.clientX - rect.left;
       mouse.y = event.clientY - rect.top;
       mouse.active = true;
+      stageElement.style.setProperty("--site-pointer-x", `${event.clientX}px`);
+      stageElement.style.setProperty("--site-pointer-y", `${event.clientY}px`);
+      if (reducedMotion) {
+        easedMouse.x = mouse.x;
+        easedMouse.y = mouse.y;
+        renderFrame(0, false);
+      }
     }
 
     function handlePointerLeave() {
@@ -391,20 +399,20 @@ function InteractiveSiteField({ mode }: { mode: MotionMode }) {
 
     const resizeObserver = new ResizeObserver(rebuild);
     resizeObserver.observe(canvasElement);
-    stage.addEventListener("pointerdown", handlePointerMove);
-    stage.addEventListener("pointermove", handlePointerMove);
-    stage.addEventListener("pointerleave", handlePointerLeave);
-    stage.addEventListener("pointercancel", handlePointerEnd);
+    window.addEventListener("pointerdown", handlePointerMove, { passive: true });
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    stageElement.addEventListener("pointerleave", handlePointerLeave);
+    window.addEventListener("pointercancel", handlePointerEnd);
     window.addEventListener("pointerup", handlePointerEnd);
     rebuild();
     if (!reducedMotion) frame = window.requestAnimationFrame((time) => renderFrame(time, true));
 
     return () => {
       resizeObserver.disconnect();
-      stage.removeEventListener("pointerdown", handlePointerMove);
-      stage.removeEventListener("pointermove", handlePointerMove);
-      stage.removeEventListener("pointerleave", handlePointerLeave);
-      stage.removeEventListener("pointercancel", handlePointerEnd);
+      window.removeEventListener("pointerdown", handlePointerMove);
+      window.removeEventListener("pointermove", handlePointerMove);
+      stageElement.removeEventListener("pointerleave", handlePointerLeave);
+      window.removeEventListener("pointercancel", handlePointerEnd);
       window.removeEventListener("pointerup", handlePointerEnd);
       if (frame) window.cancelAnimationFrame(frame);
     };
